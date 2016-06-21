@@ -64,12 +64,12 @@ def prox_bool(cid, handle):
 # dim = 1
 def float_signal(cid, handle, signal_name):
     err, val = vrep.simxGetFloatSignal(cid, signal_name, vrep_mode)
-    return val
+    return [val]
 
 # dim = 1
 def integer_signal(cid, handle, signal_name):
     err, val = vrep.simxGetIntegerSignal(cid, signal_name, vrep_mode)
-    return val
+    return [val]
 
 def dvs_vision(cid, handle, height=32, width=32):
     err, res, image = vrep.simxGetVisionSensorImage(cid, handle, 1, vrep_mode)

@@ -35,6 +35,18 @@ If V-REP is extracted to your Downloads directory and you are currently in the d
 `ln -s ~/Downloads/V-REP_PRO_EDU_V3_4_0_Linux/programming/remoteApiBindings/python/python/vrepConst.py .`
 `ln -s ~/Downloads/V-REP_PRO_EDU_V3_4_0_Linux/programming/remoteApiBindings/lib/lib/64Bit/remoteApi.so .`
 
+In some versions of V-REP the `vrep.py` file does a bad job of trying to find `remoteApi.so`.
+You'll see an error when importing `vrep` if this happens.
+To fix this, edit the `vrep.py` file and change one line (likely line 48) from:
+
+`libfullpath = os.path.join(os.path.dirname(__file__), 'remoteApi' + file_extension)`
+
+to:
+
+`libfullpath = './remoteApi' + file_extension`
+
+A list of available commands you can use from Python can be found [here](http://www.coppeliarobotics.com/helpFiles/en/remoteApiFunctionsPython.htm) and organized by category [here](http://www.coppeliarobotics.com/helpFiles/en/remoteApiFunctionListCategory.htm)
+
 A list of available commands you can use from Python can be found [here](http://www.coppeliarobotics.com/helpFiles/en/remoteApiFunctionsPython.htm) and organized by category [here](http://www.coppeliarobotics.com/helpFiles/en/remoteApiFunctionListCategory.htm)
 
 ## Scene Files for the Tutorial

@@ -66,6 +66,14 @@ def float_signal(cid, handle, signal_name):
     err, val = vrep.simxGetFloatSignal(cid, signal_name, vrep_mode)
     return [val]
 
+# dim = 3
+def imu(cid, handle):
+    err, accel_x = vrep.simxGetFloatSignal(cid, 'accelerometerX', vrep_mode)
+    err, accel_y = vrep.simxGetFloatSignal(cid, 'accelerometerY', vrep_mode)
+    err, accel_z = vrep.simxGetFloatSignal(cid, 'accelerometerZ', vrep_mode)
+
+    return [accel_x, accel_y, accel_z]
+
 # dim = 1
 def integer_signal(cid, handle, signal_name):
     err, val = vrep.simxGetIntegerSignal(cid, signal_name, vrep_mode)

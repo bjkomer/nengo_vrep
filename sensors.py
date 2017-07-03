@@ -67,10 +67,18 @@ def float_signal(cid, handle, signal_name):
     return [val]
 
 # dim = 3
-def imu(cid, handle):
+def accelerometer(cid, handle):
     err, accel_x = vrep.simxGetFloatSignal(cid, 'accelerometerX', vrep_mode)
     err, accel_y = vrep.simxGetFloatSignal(cid, 'accelerometerY', vrep_mode)
     err, accel_z = vrep.simxGetFloatSignal(cid, 'accelerometerZ', vrep_mode)
+
+    return [accel_x, accel_y, accel_z]
+
+# dim = 3
+def gyro(cid, handle):
+    err, accel_x = vrep.simxGetFloatSignal(cid, 'gyroX', vrep_mode)
+    err, accel_y = vrep.simxGetFloatSignal(cid, 'gyroY', vrep_mode)
+    err, accel_z = vrep.simxGetFloatSignal(cid, 'gyroZ', vrep_mode)
 
     return [accel_x, accel_y, accel_z]
 
